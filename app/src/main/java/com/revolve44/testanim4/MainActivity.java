@@ -4,6 +4,7 @@ package com.revolve44.testanim4;
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -14,10 +15,14 @@ import android.graphics.RectF;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 //import android.support.v7.app.AppCompatActivity;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +31,9 @@ import androidx.fragment.app.FragmentManager;
 
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.SupportMapFragment;
+
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,6 +58,8 @@ public class MainActivity extends AppCompatActivity {
 
     SupportMapFragment mapView;
 
+    int random_num;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,9 +71,14 @@ public class MainActivity extends AppCompatActivity {
 
 //        FragmentManager fm = getSupportFragmentManager();
 //        Fragment fragment_byID = fm.findFragmentById(R.id.mapView);
+//        Random r = new Random();
+//        int random_num = r.nextInt(50 - 1) + 1;
+
+
 
 
         calcScreen();
+
 
 
 
@@ -72,7 +87,17 @@ public class MainActivity extends AppCompatActivity {
         DisplayMetrics displayMetrics2 = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics2);
         height = displayMetrics2.heightPixels-130;
-        width = displayMetrics2.widthPixels-210;
+        width = displayMetrics2.widthPixels;
+
+
+        int min = 1;
+        int max = 50;
+
+        Random r = new Random();
+        random_num = r.nextInt(max - min + 1) + min;
+        Toast.makeText(this, ""+width, Toast.LENGTH_SHORT).show();
+
+
     }
 
 
@@ -98,9 +123,48 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void MasterCloud(){
+        //Motion CloudL
+        ImageView cloud = (ImageView) findViewById(R.id.ivCloudLARGE);
+        cloud.setVisibility(View.VISIBLE);
+        //TranslateAnimation animation2 = new TranslateAnimation(a, 200, c, 280);
+        TranslateAnimation cloudanim = new TranslateAnimation(-720, (width/100)+random_num,-20, -20 );
+        cloudanim.setDuration(3000);
+        cloudanim.setFillAfter(true);
+        cloud.startAnimation(cloudanim);
+        //
+        //Motion CloudL
+        ImageView cloud2 = (ImageView) findViewById(R.id.ivCloudLARGE2);
+        cloud2.setVisibility(View.VISIBLE);
+        //TranslateAnimation animation2 = new TranslateAnimation(a, 200, c, 280);
+        TranslateAnimation cloudanim2 = new TranslateAnimation(-720, (width/3)+random_num,-20, -20 );
+        cloudanim2.setDuration(3500);
+        cloudanim2.setFillAfter(true);
+        cloud2.startAnimation(cloudanim2);
+        //
+        //Motion CloudL
+        ImageView cloud3 = (ImageView) findViewById(R.id.ivCloudLARGE3);
+        cloud3.setVisibility(View.VISIBLE);
+        //TranslateAnimation animation2 = new TranslateAnimation(a, 200, c, 280);
+        TranslateAnimation cloudanim3 = new TranslateAnimation(-720, (width/2)+random_num,-20, -20 );
+        cloudanim3.setDuration(4000);
+        cloudanim3.setFillAfter(true);
+        cloud3.startAnimation(cloudanim3);
+        //
+        //Motion CloudL
+        ImageView cloud4 = (ImageView) findViewById(R.id.ivCloudLARGE4);
+        cloud4.setVisibility(View.VISIBLE);
+        //TranslateAnimation animation2 = new TranslateAnimation(a, 200, c, 280);
+        TranslateAnimation cloudanim4 = new TranslateAnimation(-720, (width-100)+random_num,-20, -20 );
+        cloudanim4.setDuration(4500);
+        cloudanim4.setFillAfter(true);
+        cloud4.startAnimation(cloudanim4);
+    }
+
 
 // motion desing
     public void sunrise(View view) {
+
         //darken sky
         SkyLayout = (RelativeLayout) findViewById(R.id.SkyLayout);
         ValueAnimator skyAnim =
@@ -112,6 +176,9 @@ public class MainActivity extends AppCompatActivity {
         //skyAnim.setRepeatMode(ValueAnimator.REVERSE);
         skyAnim.setEvaluator(new ArgbEvaluator());
         skyAnim.start();
+
+        MasterCloud();
+
         //Motion Sun
         ImageView image4 = (ImageView) findViewById(R.id.ivSun);
         image4.setVisibility(View.VISIBLE);
@@ -186,8 +253,8 @@ public class MainActivity extends AppCompatActivity {
         ImageView image4 = (ImageView) findViewById(R.id.ivSun);
         image4.setVisibility(View.VISIBLE);
         //TranslateAnimation animation2 = new TranslateAnimation(a, 200, c, 280);
-        TranslateAnimation animation1 = new TranslateAnimation(0, (width/6)*5,-200, -20 );
-        animation1.setDuration(3000);
+        TranslateAnimation animation1 = new TranslateAnimation(0, (width/6)*5,-320, -20 );
+        animation1.setDuration(4000);
         animation1.setFillAfter(true);
         image4.startAnimation(animation1);
     }
@@ -208,12 +275,25 @@ public class MainActivity extends AppCompatActivity {
         ImageView image4 = (ImageView) findViewById(R.id.ivSun);
         image4.setVisibility(View.VISIBLE);
         //TranslateAnimation animation2 = new TranslateAnimation(a, 200, c, 280);
-        TranslateAnimation animation1 = new TranslateAnimation(0, (width/100)*99,-200, 200 );
-        animation1.setDuration(3000);
+        TranslateAnimation animation1 = new TranslateAnimation(0, width-200,-320, 200 );
+        animation1.setDuration(4000);
         animation1.setFillAfter(true);
         image4.startAnimation(animation1);
+
+        int width2 = image4.getDrawable().getIntrinsicWidth();
+        Toast.makeText(this, ""+width2, Toast.LENGTH_SHORT).show();
     }
 
     public void firsttest(View view) {
+        ImageView imageX= (ImageView) findViewById(R.id.birds);
+        RotateAnimation rotate = new RotateAnimation(360, 0, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+//        rotate.setDuration(Animation.INFINITE);
+//        rotate.setInterpolator(new LinearInterpolator());
+        rotate.setDuration(500);
+        rotate.setRepeatCount(Animation.INFINITE);
+        rotate.setInterpolator(new LinearInterpolator());
+        imageX.startAnimation(rotate);
+
+
     }
 }
