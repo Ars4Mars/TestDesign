@@ -13,6 +13,8 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.animation.Animation;
@@ -33,7 +35,9 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.SupportMapFragment;
 
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
+
+import de.nitri.gauge.Gauge;
+import pl.pawelkleczkowski.customgauge.CustomGauge;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -73,6 +77,27 @@ public class MainActivity extends AppCompatActivity {
 //        Fragment fragment_byID = fm.findFragmentById(R.id.mapView);
 //        Random r = new Random();
 //        int random_num = r.nextInt(50 - 1) + 1;
+        //final Gauge gauge = (Gauge) findViewById(R.id.gauge);
+
+        //gauge.moveToValue(800);
+
+//        HandlerThread thread = new HandlerThread("GaugeDemoThread");
+//        thread.start();
+//        Handler handler = new Handler(thread.getLooper());
+//
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                gauge.moveToValue(300);
+//            }
+//        }, 2800);
+//        handler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                gauge.moveToValue(550);
+//            }
+//        }, 5600);
+
 
 
 
@@ -231,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
         ImageView image4 = (ImageView) findViewById(R.id.ivSun);
         image4.setVisibility(View.VISIBLE);
     //TranslateAnimation animation2 = new TranslateAnimation(a, 200, c, 280);
-        TranslateAnimation animation2 = new TranslateAnimation(-220, width/2,200, -20 );
+        TranslateAnimation animation2 = new TranslateAnimation(-220, width/2-100,200, -20 );
         animation2.setDuration(3000);
         animation2.setFillAfter(true);
         image4.startAnimation(animation2);
