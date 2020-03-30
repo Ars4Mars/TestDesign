@@ -9,7 +9,7 @@
     You can also add your credentials to an existing key, using these values:
 
     Package name:
-    com.revolve44.googlemaptest
+    com.revolve44.testanim4
 
     SHA-1 certificate fingerprint:
     7E:D5:76:E8:0A:9A:51:81:F3:25:E2:0D:A5:0A:F1:03:FD:26:96:A1
@@ -20,5 +20,6 @@
     Once you have your key (it starts with "AIza"), replace the "google_maps_key"
     string in this file.
     -->
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCltYK95ksc2pGL0fLryxG5BKmUVzMYBT8</string>
+ <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBggT3KJdKRdOrZ4an1H0OkzaagQZmHcMM</string>
+
 </resources>

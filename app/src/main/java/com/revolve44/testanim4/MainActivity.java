@@ -5,6 +5,7 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -73,40 +74,7 @@ public class MainActivity extends AppCompatActivity {
         SkyLayout = (RelativeLayout) findViewById(R.id.SkyLayout);
         ivRoof = (ImageView) findViewById(R.id.ivRoof);
 
-//        FragmentManager fm = getSupportFragmentManager();
-//        Fragment fragment_byID = fm.findFragmentById(R.id.mapView);
-//        Random r = new Random();
-//        int random_num = r.nextInt(50 - 1) + 1;
-        //final Gauge gauge = (Gauge) findViewById(R.id.gauge);
-
-        //gauge.moveToValue(800);
-
-//        HandlerThread thread = new HandlerThread("GaugeDemoThread");
-//        thread.start();
-//        Handler handler = new Handler(thread.getLooper());
-//
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                gauge.moveToValue(300);
-//            }
-//        }, 2800);
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                gauge.moveToValue(550);
-//            }
-//        }, 5600);
-
-
-
-
-
         calcScreen();
-
-
-
-
     }
     public void calcScreen(){
         DisplayMetrics displayMetrics2 = new DisplayMetrics();
@@ -145,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void thirdsection(View view) {
+        startActivity(new Intent(MainActivity.this, MapsActivity.class));
 
     }
 

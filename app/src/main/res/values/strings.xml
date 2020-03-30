@@ -11,4 +11,6 @@
 <string name="day">#769CDD</string>
 <string name="spacegrey">#BFC5D1</string>
 
+<string name="title_activity_maps">Map</string>
 </resources>
+
